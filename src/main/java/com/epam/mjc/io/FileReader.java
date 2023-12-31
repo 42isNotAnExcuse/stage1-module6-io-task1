@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
-
 public class FileReader {
 
     public Profile getDataFromFile(File file) {
@@ -23,9 +22,10 @@ public class FileReader {
         try (BufferedReader r = new BufferedReader(new java.io.FileReader(dataFile))) {
             arr = r.lines().toArray(String[]::new);
         } catch (IOException ex) {
-            System.out.println("mapping went awry!");
+            ex.printStackTrace();
         }
 
+        assert arr != null;
         return arr;
     }
 
